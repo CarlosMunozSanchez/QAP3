@@ -52,7 +52,8 @@ QAPBL::QAPBL(const std::vector<int> & inicial, const vector<vector<int>> & flujo
     busquedaLocal(flujos, distancias);
 }
 
-int QAPBL::comprobarMovimiento(int i, int j, const vector<vector<int>> & flujos, const vector<vector<int>> & distancias){
+int QAPBL::comprobarMovimiento(int i, int j, const vector<vector<int>> & flujos, 
+        const vector<vector<int>> & distancias){
     int diferencia = 0;
     
     //factorización del cambio en el coste debido a cambio

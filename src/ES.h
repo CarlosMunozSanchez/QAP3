@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.h to edit this template
- */
-
 /* 
  * File:   ES.h
  * Author: carlos
@@ -14,12 +9,27 @@
 #define ES_H
 
 class ES {
-public:
-    ES();
-    ES(const ES& orig);
-    virtual ~ES();
 private:
+    //Temperatura
+    const float TFINAL = 0.0001;
+    float T;
+    float B;
+    
+    //solucion
+    std::vector<int> solucion;
+    
+    
+    void enfriar();
+    void simularEnfriamiento(const std::vector<std::vector<int>> & flujos, 
+            const std::vector<std::vector<int>> & distancias);
+    int comprobarMovimiento(int i, int j, const std::vector<std::vector<int>> & flujos, 
+        const std::vector<std::vector<int>> & distancias);
+    void aplicarMovimiento(int i, int j);
 
+public:
+    ES(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias,
+            int seed);
+    
 };
 
 #endif /* ES_H */
