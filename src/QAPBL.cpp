@@ -78,7 +78,7 @@ void QAPBL::aplicarMovimiento(int i, int j){
 }
 
 void QAPBL::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias){
-    const int MAX_EVAL = 400;
+    const int MAX_EVAL = 2000;
     int iter = 0;
     bool hay_mejora;
    

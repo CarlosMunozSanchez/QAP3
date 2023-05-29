@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>BMB.h</itemPath>
       <itemPath>src/ES.h</itemPath>
       <itemPath>src/QAPBL.h</itemPath>
       <itemPath>src/funciones.h</itemPath>
@@ -16,6 +17,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>BMB.cpp</itemPath>
       <itemPath>src/ES.cpp</itemPath>
       <itemPath>src/QAPBL.cpp</itemPath>
       <itemPath>src/funciones.cpp</itemPath>
@@ -46,6 +48,10 @@
           <commandLine>-O2</commandLine>
         </ccTool>
       </compileType>
+      <item path="BMB.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BMB.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ES.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ES.h" ex="false" tool="3" flavor2="0">
@@ -83,6 +89,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="BMB.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BMB.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ES.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ES.h" ex="false" tool="3" flavor2="0">

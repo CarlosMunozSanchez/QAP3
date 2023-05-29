@@ -36,11 +36,10 @@ ES::ES(const vector<vector<int>> & flujos,
     TINICIAL = T = (0.3 * evaluarSolucion(solucion, flujos, distancias, f)) / (-log(0.2));
     
     while(T < TFINAL){
-        
         T *= 10;
     }
     
-    MAX_VECINOS = 15 * solucion.size();
+    MAX_VECINOS = 5 * solucion.size();
     MAX_EXITOS = 0.1 * MAX_VECINOS;
     MAX_ITER = 50000 / MAX_VECINOS;
     B = (TINICIAL - TFINAL) / (MAX_ITER * TINICIAL * TFINAL);

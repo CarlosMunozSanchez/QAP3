@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/BMB.o \
 	${OBJECTDIR}/src/ES.o \
 	${OBJECTDIR}/src/QAPBL.o \
 	${OBJECTDIR}/src/funciones.o \
@@ -64,6 +65,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/BMB.o: BMB.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BMB.o BMB.cpp
 
 ${OBJECTDIR}/src/ES.o: src/ES.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
