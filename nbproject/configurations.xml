@@ -19,7 +19,7 @@
       <itemPath>src/ES.cpp</itemPath>
       <itemPath>src/QAPBL.cpp</itemPath>
       <itemPath>src/funciones.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
+      <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -42,9 +42,10 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <commandLine>-O2</commandLine>
+        </ccTool>
       </compileType>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/ES.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ES.h" ex="false" tool="3" flavor2="0">
@@ -56,6 +57,8 @@
       <item path="src/funciones.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/funciones.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/random.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -80,8 +83,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/ES.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ES.h" ex="false" tool="3" flavor2="0">
@@ -93,6 +94,8 @@
       <item path="src/funciones.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/funciones.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/random.hpp" ex="false" tool="3" flavor2="0">
       </item>

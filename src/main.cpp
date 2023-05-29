@@ -6,9 +6,7 @@
  */
 #include <iostream>
 #include <chrono>
-#include "AGG.h"
-#include "AGE.h"
-#include "AM.h"
+#include "ES.h"
 #include "funciones.h"
 
 using namespace std;
@@ -45,15 +43,15 @@ int main(int argc, char** argv){
     cout << "---------------------------------------------------------------" << endl;
     cout << "Resultados del archivo " << entrada << endl << endl;
     
-    //AGG con cruce por posicion
+    //Enfriamiento simulado
     auto momentoInicio = high_resolution_clock::now();
-    AGG generacionalPosicion(0, optimo.size(), flujos, distancias, seed);
+    ES es(flujos, distancias, seed);
     
-    solucion = generacionalPosicion.getSolucion();
+    solucion = es.getSolucion();
     auto momentoFin = high_resolution_clock::now();
     
     float fitness = costeOptimo;
-    cout << "Solución AGG con cruce por posicion con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
+    cout << "Solución ES con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
             " y fitness = " << fitness << endl;    
     mostrarVector(solucion);
     
@@ -61,7 +59,7 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    /*
     //AGG con cruce PMX
      momentoInicio = high_resolution_clock::now();
     AGG generacionalPMX(1, optimo.size(), flujos, distancias, seed);
@@ -163,5 +161,5 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    */
 }
