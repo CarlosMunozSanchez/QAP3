@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/src/BMB.o \
 	${OBJECTDIR}/src/ES.o \
+	${OBJECTDIR}/src/ILS.o \
 	${OBJECTDIR}/src/QAPBL.o \
 	${OBJECTDIR}/src/funciones.o \
 	${OBJECTDIR}/src/main.o
@@ -75,6 +76,11 @@ ${OBJECTDIR}/src/ES.o: src/ES.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ES.o src/ES.cpp
+
+${OBJECTDIR}/src/ILS.o: src/ILS.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ILS.o src/ILS.cpp
 
 ${OBJECTDIR}/src/QAPBL.o: src/QAPBL.cpp
 	${MKDIR} -p ${OBJECTDIR}/src

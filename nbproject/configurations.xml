@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>src/BMB.h</itemPath>
       <itemPath>src/ES.h</itemPath>
+      <itemPath>src/ILS.h</itemPath>
       <itemPath>src/QAPBL.h</itemPath>
       <itemPath>src/funciones.h</itemPath>
       <itemPath>src/random.hpp</itemPath>
@@ -19,6 +20,7 @@
                    projectFiles="true">
       <itemPath>src/BMB.cpp</itemPath>
       <itemPath>src/ES.cpp</itemPath>
+      <itemPath>src/ILS.cpp</itemPath>
       <itemPath>src/QAPBL.cpp</itemPath>
       <itemPath>src/funciones.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -55,6 +57,10 @@
       <item path="src/ES.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ES.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ILS.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ILS.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/QAPBL.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -96,6 +102,10 @@
       <item path="src/ES.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ES.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ILS.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ILS.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/QAPBL.cpp" ex="false" tool="1" flavor2="0">
       </item>

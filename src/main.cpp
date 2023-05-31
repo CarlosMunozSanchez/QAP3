@@ -9,6 +9,7 @@
 #include "ES.h"
 #include "funciones.h"
 #include "BMB.h"
+#include "ILS.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -77,16 +78,16 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    /*
-    //AGE con cruce por posicion
-     momentoInicio = high_resolution_clock::now();
-    AGE estacionarioPosicion(0, optimo.size(), flujos, distancias, seed);
     
-    solucion = estacionarioPosicion.getSolucion();
+    //ILS
+    momentoInicio = high_resolution_clock::now();
+    ILS ils(flujos, distancias, seed);
+    
+    solucion = ils.getSolucion();
     momentoFin = high_resolution_clock::now();
     
     fitness = costeOptimo;
-    cout << "Solución AGE con cruce por posición con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
+    cout << "Solución ILS con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
             " y fitness = " << fitness << endl;    
     mostrarVector(solucion);
     
@@ -94,7 +95,7 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    /*
     //AGE con cruce PMX
      momentoInicio = high_resolution_clock::now();
     AGE estacionarioPMX(1, optimo.size(), flujos, distancias, seed);
