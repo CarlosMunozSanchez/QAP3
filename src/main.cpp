@@ -8,6 +8,7 @@
 #include <chrono>
 #include "ES.h"
 #include "funciones.h"
+#include "BMB.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -59,16 +60,16 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    /*
-    //AGG con cruce PMX
-     momentoInicio = high_resolution_clock::now();
-    AGG generacionalPMX(1, optimo.size(), flujos, distancias, seed);
     
-    solucion = generacionalPMX.getSolucion();
+    //Búsqueda local Multiarranque Básica
+     momentoInicio = high_resolution_clock::now();
+    BMB bmb(flujos, distancias, seed);
+    
+    solucion = bmb.getSolucion();
     momentoFin = high_resolution_clock::now();
     
     fitness = costeOptimo;
-    cout << "Solución AGG con cruce PMX con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
+    cout << "Solución BMB con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
             " y fitness = " << fitness << endl;    
     mostrarVector(solucion);
     
@@ -76,7 +77,7 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    /*
     //AGE con cruce por posicion
      momentoInicio = high_resolution_clock::now();
     AGE estacionarioPosicion(0, optimo.size(), flujos, distancias, seed);

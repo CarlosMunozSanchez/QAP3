@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/BMB.o \
+	${OBJECTDIR}/src/BMB.o \
 	${OBJECTDIR}/src/ES.o \
 	${OBJECTDIR}/src/QAPBL.o \
 	${OBJECTDIR}/src/funciones.o \
@@ -66,10 +66,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/BMB.o: BMB.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/BMB.o: src/BMB.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BMB.o BMB.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BMB.o src/BMB.cpp
 
 ${OBJECTDIR}/src/ES.o: src/ES.cpp
 	${MKDIR} -p ${OBJECTDIR}/src

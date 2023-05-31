@@ -7,6 +7,8 @@
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 
+#include <string>
+
 /**
  * @brief Función que lee los datos del fichero de entrada y actualiza.
  * los vectores flujo y distancia con dichos valores.
