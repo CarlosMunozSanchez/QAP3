@@ -4,6 +4,7 @@
  * 
  * Created on 5 de abril de 2023, 13:18
  * Rework on 19 de mayo de 2023, 13:00
+ * Modified for P3 on 5 de junio de 2023, 11:58
  */
 
 #include "QAPBL.h"
@@ -19,9 +20,9 @@ using Random = effolkronium::random_static;
 
 QAPBL::QAPBL(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int seed) {
     //inicializar la máscara dlb
-    dlb.assign(flujos.size(), 0);
+   // dlb.assign(, 0);
     
-    solucion.resize(dlb.size());
+    solucion.resize(flujos.size());
     
     //inicializar el vector solucion
     for(int i = 0; i < solucion.size(); i++){
@@ -41,9 +42,8 @@ QAPBL::QAPBL(const vector<vector<int>> & flujos, const vector<vector<int>> & dis
 QAPBL::QAPBL(const std::vector<int> & inicial, const vector<vector<int>> & flujos, 
         const vector<vector<int>> & distancias, int seed) {
     //inicializar la máscara dlb
-    dlb.assign(flujos.size(), 0);
+    // dlb.assign(, 0);
     
-    //inicializar el vector solucion
     solucion = inicial;
 
     float aux = 1;
@@ -80,16 +80,17 @@ void QAPBL::aplicarMovimiento(int i, int j){
 void QAPBL::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias){
     const int MAX_EVAL = 2000;
     int iter = 0;
-    bool hay_mejora;
+    //bool hay_mejora;
    
     //Para llevar la cuenta de cuántos bits de dlb están a 0
-    int dlbStatus = dlb.size();
+    //int dlbStatus = dlb.size();
     
-    //Se explora el espacio de soluciones mientras se haya al menos un bit a 0
-    //en dlb y no se supere el umbral MAX_EVAL
-    while(iter < MAX_EVAL and dlbStatus > 0){
-        
-        //para cada unidad
+    //Se explora el espacio de soluciones mientras no se supere el umbral MAX_EVAL
+    // EN ESTA VERSIÓN NO SE USA DLB
+    while(iter < MAX_EVAL /*and dlbStatus > 0*/){
+        //ESQUEMA ANTIGUO CON DLB
+        /*
+         //para cada unidad
         for(int i = 0; i < solucion.size(); i++){
             //se comprueba la máscara
             if(!dlb[i]){
@@ -121,6 +122,20 @@ void QAPBL::busquedaLocal(const vector<vector<int>> & flujos, const vector<vecto
                 }
             }            
         }
+         */
+        //ESQUEMA NUEVO CON POSICIONES ALEATORIAS 
+        int i = Random::get(0, (int)solucion.size()-1);
+        int j = Random::get(0, (int)solucion.size()-1);
+        
+        int c = comprobarMovimiento(i, j, flujos, distancias);
+        
+        //cuando encontremos mejora, la realizamos
+        if(c < 0){
+            //hay_mejora = true;
+            aplicarMovimiento(i, j);
+        }
+        
+        iter++;
     }
 
     float aux = 1;

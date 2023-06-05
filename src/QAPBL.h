@@ -3,6 +3,7 @@
  * Author: carlos
  *
  * Created on 5 de abril de 2023, 13:18
+ * Modified for P3 on 5 de junio de 2023, 11:58
  */
 
 #include <vector>
@@ -14,7 +15,7 @@ class QAPBL {
 
     private:
         std::vector<int> solucion;
-        std::vector<bool> dlb;
+        //std::vector<bool> dlb;
         
         int coste;
         

@@ -9,6 +9,7 @@
 #include "funciones.h"
 #include "random.hpp"
 #include "QAPBL.h"
+#include <iostream>
 
 using namespace std;
 // get base random alias which is auto seeded and has static API and internal state
