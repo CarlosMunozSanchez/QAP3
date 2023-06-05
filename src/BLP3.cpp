@@ -18,7 +18,7 @@ using namespace std;
 using Random = effolkronium::random_static;
 
 
-BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int seed) {
+BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int seed, int k) {
     //inicializar la máscara dlb
    // dlb.assign(, 0);
     
@@ -35,12 +35,12 @@ BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & dista
     float aux = 1;
     coste = evaluarSolucion(solucion, flujos, distancias, aux);
         
-    busquedaLocal(flujos, distancias);
+    busquedaLocal(flujos, distancias, k);
 }
 
 
 BLP3::BLP3(const std::vector<int> & inicial, const vector<vector<int>> & flujos, 
-        const vector<vector<int>> & distancias, int seed) {
+        const vector<vector<int>> & distancias, int seed, int k) {
     //inicializar la máscara dlb
     // dlb.assign(, 0);
     
@@ -49,7 +49,7 @@ BLP3::BLP3(const std::vector<int> & inicial, const vector<vector<int>> & flujos,
     float aux = 1;
     coste = evaluarSolucion(solucion, flujos, distancias, aux);
         
-    busquedaLocal(flujos, distancias);
+    busquedaLocal(flujos, distancias, k);
 }
 
 int BLP3::comprobarMovimiento(int i, int j, const vector<vector<int>> & flujos, 
@@ -77,7 +77,7 @@ void BLP3::aplicarMovimiento(int i, int j){
     solucion[j] = aux;    
 }
 
-void BLP3::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias){
+void BLP3::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int k){
     const int MAX_EVAL = 2000;
     int iter = 0;
     //bool hay_mejora;
@@ -124,15 +124,41 @@ void BLP3::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector
         }
          */
         //ESQUEMA NUEVO CON POSICIONES ALEATORIAS 
-        int i = Random::get(0, (int)solucion.size()-1);
-        int j = Random::get(0, (int)solucion.size()-1);
+        if(k == 1){ //caso normal
+            int i = Random::get(0, (int)solucion.size()-1);
+            int j = Random::get(0, (int)solucion.size()-1);
+            int c = comprobarMovimiento(i, j, flujos, distancias);
         
-        int c = comprobarMovimiento(i, j, flujos, distancias);
-        
-        //cuando encontremos mejora, la realizamos
-        if(c < 0){
-            //hay_mejora = true;
-            aplicarMovimiento(i, j);
+            //cuando encontremos mejora, la realizamos
+            if(c < 0){
+                //hay_mejora = true;
+                aplicarMovimiento(i, j);
+            }
+        }
+        else{ //casos del VNS
+            vector<int> aux = solucion;
+            int c = 0;
+            
+            //intercambio vecinos de dos en dos y voy calculando el cambio en
+            //el coste de forma acumulada. Luego, restauro la solución original 
+            //y me planteo el cambio
+            for(int w = 0; w < k; w++){
+                //obtengo dos vecinos
+                int i = Random::get(0, (int)solucion.size()-1);
+                int j = Random::get(0, (int)solucion.size()-1);
+                //acumulo el cambio (uso la factorización)
+                c += comprobarMovimiento(i, j, flujos, distancias);
+                //aplico el movimiento para seguir acumulando
+                aplicarMovimiento(i, j);
+            }
+            
+            //He acabado: compruebo si la solución es ahora mejor
+            if(c > 0){//he perdido con los cambios
+                //restauro la solución
+                solucion = aux;
+            }
+            //else -> los cambios ya se han realizado y la solución ha mejorado
+            
         }
         
         iter++;

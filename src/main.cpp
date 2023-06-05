@@ -11,6 +11,7 @@
 #include "BMB.h"
 #include "ILS.h"
 #include "BLP3.h"
+#include "VNS.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -113,16 +114,16 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    /*
-    //AM 10, 1
-     momentoInicio = high_resolution_clock::now();
-    AM diezTodos(1, 0, optimo.size(), flujos, distancias, seed);
     
-    solucion = diezTodos.getSolucion();
+    //VNS
+    momentoInicio = high_resolution_clock::now();
+    VNS vns(flujos, distancias, seed);
+    
+    solucion = vns.getSolucion();
     momentoFin = high_resolution_clock::now();
     
     fitness = costeOptimo;
-    cout << "Solución AM con hibridación 10, 1 con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
+    cout << "Solución VNS con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
             " y fitness = " << fitness << endl;    
     mostrarVector(solucion);
     
@@ -130,7 +131,7 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    /*
     //AM 10, 0.1
      momentoInicio = high_resolution_clock::now();
     AM diezAlgunos(1, 1, optimo.size(), flujos, distancias, seed);

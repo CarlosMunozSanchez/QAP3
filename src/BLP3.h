@@ -42,7 +42,8 @@ class BLP3 {
          * @param flujos Matriz de flujos asociada.
          * @param distancias Matriz de distancias asociada.
          */
-        void busquedaLocal(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias);
+        void busquedaLocal(const std::vector<std::vector<int>> & flujos, 
+        const std::vector<std::vector<int>> & distancias, int k);
         
     public:
         
@@ -51,16 +52,19 @@ class BLP3 {
          * @param flujos
          * @param distancias
          * @param seed
+         * @param k Modifica el operador de vecindario para aplicación en VNS
          */
-        BLP3(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias, int seed);
+        BLP3(const std::vector<std::vector<int>> & flujos, 
+                const std::vector<std::vector<int>> & distancias, int seed, int k = 1);
         /**
          * @brief Constructor con solución inicial
          * @param flujos
          * @param distancias
          * @param seed
+         * @param k Modifica el operador de vecindario para aplicación en VNS
          */
         BLP3(const std::vector<int> & inicial, const std::vector<std::vector<int>> & flujos, 
-            const std::vector<std::vector<int>> & distancias, int seed);
+            const std::vector<std::vector<int>> & distancias, int seed, int k = 1);
       
         std::vector<int> getSolucion()const {
             return solucion;
