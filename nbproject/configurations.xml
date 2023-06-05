@@ -4,10 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/BLP3.h</itemPath>
       <itemPath>src/BMB.h</itemPath>
       <itemPath>src/ES.h</itemPath>
       <itemPath>src/ILS.h</itemPath>
-      <itemPath>src/QAPBL.h</itemPath>
       <itemPath>src/funciones.h</itemPath>
       <itemPath>src/random.hpp</itemPath>
     </logicalFolder>
@@ -18,10 +18,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/BLP3.cpp</itemPath>
       <itemPath>src/BMB.cpp</itemPath>
       <itemPath>src/ES.cpp</itemPath>
       <itemPath>src/ILS.cpp</itemPath>
-      <itemPath>src/QAPBL.cpp</itemPath>
       <itemPath>src/funciones.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
@@ -50,6 +50,10 @@
           <commandLine>-O2</commandLine>
         </ccTool>
       </compileType>
+      <item path="src/BLP3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BLP3.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/BMB.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/BMB.h" ex="false" tool="3" flavor2="0">
@@ -61,10 +65,6 @@
       <item path="src/ILS.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ILS.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/QAPBL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/QAPBL.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/funciones.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -95,6 +95,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="src/BLP3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BLP3.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/BMB.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/BMB.h" ex="false" tool="3" flavor2="0">
@@ -106,10 +110,6 @@
       <item path="src/ILS.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ILS.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/QAPBL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/QAPBL.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/funciones.cpp" ex="false" tool="1" flavor2="0">
       </item>

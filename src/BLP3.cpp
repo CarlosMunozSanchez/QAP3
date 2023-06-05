@@ -7,7 +7,7 @@
  * Modified for P3 on 5 de junio de 2023, 11:58
  */
 
-#include "QAPBL.h"
+#include "BLP3.h"
 #include "random.hpp"
 #include "funciones.h"
 #include <iostream>
@@ -18,7 +18,7 @@ using namespace std;
 using Random = effolkronium::random_static;
 
 
-QAPBL::QAPBL(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int seed) {
+BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int seed) {
     //inicializar la máscara dlb
    // dlb.assign(, 0);
     
@@ -39,7 +39,7 @@ QAPBL::QAPBL(const vector<vector<int>> & flujos, const vector<vector<int>> & dis
 }
 
 
-QAPBL::QAPBL(const std::vector<int> & inicial, const vector<vector<int>> & flujos, 
+BLP3::BLP3(const std::vector<int> & inicial, const vector<vector<int>> & flujos, 
         const vector<vector<int>> & distancias, int seed) {
     //inicializar la máscara dlb
     // dlb.assign(, 0);
@@ -52,7 +52,7 @@ QAPBL::QAPBL(const std::vector<int> & inicial, const vector<vector<int>> & flujo
     busquedaLocal(flujos, distancias);
 }
 
-int QAPBL::comprobarMovimiento(int i, int j, const vector<vector<int>> & flujos, 
+int BLP3::comprobarMovimiento(int i, int j, const vector<vector<int>> & flujos, 
         const vector<vector<int>> & distancias){
     int diferencia = 0;
     
@@ -70,14 +70,14 @@ int QAPBL::comprobarMovimiento(int i, int j, const vector<vector<int>> & flujos,
     return diferencia;
 }
         
-void QAPBL::aplicarMovimiento(int i, int j){
+void BLP3::aplicarMovimiento(int i, int j){
     int aux = solucion[i];
     //permutar i y j
     solucion[i] = solucion[j];
     solucion[j] = aux;    
 }
 
-void QAPBL::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias){
+void BLP3::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias){
     const int MAX_EVAL = 2000;
     int iter = 0;
     //bool hay_mejora;

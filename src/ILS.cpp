@@ -8,7 +8,7 @@
 #include "ILS.h"
 #include "funciones.h"
 #include "random.hpp"
-#include "QAPBL.h"
+#include "BLP3.h"
 #include <iostream>
 
 using namespace std;
@@ -20,7 +20,7 @@ ILS::ILS(const vector<vector<int>> & flujos,
             const vector<vector<int>> & distancias, int seed) {
     
     //Genero la primera solución
-    QAPBL busqueda(flujos, distancias, seed);
+    BLP3 busqueda(flujos, distancias, seed);
     float f = 1;
     solucion = busqueda.getSolucion();
     costeActual =  evaluarSolucion(solucion, flujos, distancias, f);
@@ -30,7 +30,7 @@ ILS::ILS(const vector<vector<int>> & flujos,
         vector<int> mutacion = mutar();
         
         //la mejoro con BL
-        QAPBL mejorar(mutacion, flujos, distancias, seed);
+        BLP3 mejorar(mutacion, flujos, distancias, seed);
         
         //Me quedo con la mejor        
         int c = evaluarSolucion(mejorar.getSolucion(), flujos, distancias, f);

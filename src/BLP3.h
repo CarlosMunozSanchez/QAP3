@@ -8,10 +8,10 @@
 
 #include <vector>
 
-#ifndef QAPBL_H
-#define QAPBL_H
+#ifndef BLP3_H
+#define BLP3_H
 
-class QAPBL {
+class BLP3 {
 
     private:
         std::vector<int> solucion;
@@ -52,14 +52,14 @@ class QAPBL {
          * @param distancias
          * @param seed
          */
-        QAPBL(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias, int seed);
+        BLP3(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias, int seed);
         /**
          * @brief Constructor con solución inicial
          * @param flujos
          * @param distancias
          * @param seed
          */
-        QAPBL(const std::vector<int> & inicial, const std::vector<std::vector<int>> & flujos, 
+        BLP3(const std::vector<int> & inicial, const std::vector<std::vector<int>> & flujos, 
             const std::vector<std::vector<int>> & distancias, int seed);
       
         std::vector<int> getSolucion()const {
@@ -74,5 +74,5 @@ class QAPBL {
 
 };
 
-#endif /* QAPBL_H */
+#endif /* BLP3_H */
 

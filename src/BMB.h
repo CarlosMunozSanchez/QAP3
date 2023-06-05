@@ -6,7 +6,7 @@
  */
 
 #include <vector>
-#include "QAPBL.h"
+#include "BLP3.h"
 
 #ifndef BMB_H
 #define BMB_H
@@ -15,7 +15,7 @@ class BMB {
 private:
     const int N = 25;
     int best;
-    std::vector<QAPBL> soluciones;
+    std::vector<BLP3> soluciones;
     
 public:
     BMB(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias,

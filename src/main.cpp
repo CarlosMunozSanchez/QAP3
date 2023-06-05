@@ -10,6 +10,7 @@
 #include "funciones.h"
 #include "BMB.h"
 #include "ILS.h"
+#include "BLP3.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -95,16 +96,16 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    /*
-    //AGE con cruce PMX
-     momentoInicio = high_resolution_clock::now();
-    AGE estacionarioPMX(1, optimo.size(), flujos, distancias, seed);
     
-    solucion = estacionarioPMX.getSolucion();
+    //BL modificada (sin dlb)
+     momentoInicio = high_resolution_clock::now();
+    BLP3 bl(flujos, distancias, seed);
+    
+    solucion = bl.getSolucion();
     momentoFin = high_resolution_clock::now();
     
     fitness = costeOptimo;
-    cout << "Solución AGE con cruce PMX con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
+    cout << "Solución BL modificada p3 (sin dlb) con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
             " y fitness = " << fitness << endl;    
     mostrarVector(solucion);
     
@@ -112,7 +113,7 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    /*
     //AM 10, 1
      momentoInicio = high_resolution_clock::now();
     AM diezTodos(1, 0, optimo.size(), flujos, distancias, seed);
