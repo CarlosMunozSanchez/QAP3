@@ -38,6 +38,9 @@ public:
     ES(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias,
             int seed);
     
+    ES(const std::vector<int> & inicial, const std::vector<std::vector<int>> & flujos, 
+    const std::vector<std::vector<int>> & distancias, int seed);
+    
     inline std::vector<int> getSolucion(){return solucion;}
     
     

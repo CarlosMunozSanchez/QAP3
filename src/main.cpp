@@ -12,6 +12,7 @@
 #include "ILS.h"
 #include "BLP3.h"
 #include "VNS.h"
+#include "ILS_ES.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -131,16 +132,16 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    /*
-    //AM 10, 0.1
-     momentoInicio = high_resolution_clock::now();
-    AM diezAlgunos(1, 1, optimo.size(), flujos, distancias, seed);
     
-    solucion = diezAlgunos.getSolucion();
+    //AM 10, 0.1
+    momentoInicio = high_resolution_clock::now();
+    ILS_ES ils_es(flujos, distancias, seed);
+    
+    solucion = ils_es.getSolucion();
     momentoFin = high_resolution_clock::now();
     
     fitness = costeOptimo;
-    cout << "Solución AM con hibridación 10, 0.1 con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
+    cout << "Solución ILS con ES con coste " << evaluarSolucion(solucion, flujos, distancias, fitness) <<
             " y fitness = " << fitness << endl;    
     mostrarVector(solucion);
     
@@ -148,7 +149,7 @@ int main(int argc, char** argv){
     cout << "Tiempo Pasado (ms): " << tiempo.count() / 1000.0 << endl;
     
     cout << "---------------------------------------------------------------" << endl;
-    
+    /*
     //AM 10, mej0.1
      momentoInicio = high_resolution_clock::now();
     AM diezMejores(1, 2, optimo.size(), flujos, distancias, seed);

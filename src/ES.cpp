@@ -47,6 +47,34 @@ ES::ES(const vector<vector<int>> & flujos,
     simularEnfriamiento(flujos, distancias);    
 }
 
+ES::ES(const vector<int> & inicial, const vector<vector<int>> & flujos, 
+        const vector<vector<int>> & distancias, int seed) {
+    
+    //inicializar el vector solucion
+    solucion = inicial;
+    
+    //inicialización aleatoria
+    Random::seed(seed);
+    
+    //Inicialización de parámetros
+    
+    //Cálculo de la temperatura inicial
+    float f = 1;
+    TINICIAL = T = (0.3 * evaluarSolucion(solucion, flujos, distancias, f)) / (-log(0.2));
+    
+    while(T < TFINAL){
+        T *= 10;
+    }
+    
+    MAX_VECINOS = 5 * solucion.size();
+    MAX_EXITOS = 0.1 * MAX_VECINOS;
+    MAX_ITER = 50000 / MAX_VECINOS;
+    B = (TINICIAL - TFINAL) / (MAX_ITER * TINICIAL * TFINAL);
+    
+    simularEnfriamiento(flujos, distancias);    
+}
+
+
 void ES::simularEnfriamiento(const vector<vector<int>> & flujos, 
             const vector<vector<int>> & distancias){
     
