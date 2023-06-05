@@ -20,7 +20,7 @@ ILS::ILS(const vector<vector<int>> & flujos,
             const vector<vector<int>> & distancias, int seed) {
     
     //Genero la primera solución
-    BLP3 busqueda(flujos, distancias, seed);
+    BLP3 busqueda(flujos, distancias, seed, 1, 2000);
     float f = 1;
     solucion = busqueda.getSolucion();
     costeActual =  evaluarSolucion(solucion, flujos, distancias, f);
@@ -30,7 +30,7 @@ ILS::ILS(const vector<vector<int>> & flujos,
         vector<int> mutacion = mutar();
         
         //la mejoro con BL
-        BLP3 mejorar(mutacion, flujos, distancias, seed);
+        BLP3 mejorar(mutacion, flujos, distancias, seed, 1, 2000);
         
         //Me quedo con la mejor        
         int c = evaluarSolucion(mejorar.getSolucion(), flujos, distancias, f);

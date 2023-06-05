@@ -18,11 +18,13 @@ using namespace std;
 using Random = effolkronium::random_static;
 
 
-BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int seed, int k) {
+BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, 
+        int seed, int k, int MAX_EVAL) {
     //inicializar la máscara dlb
    // dlb.assign(, 0);
     
     solucion.resize(flujos.size());
+    this->MAX_EVAL = MAX_EVAL;
     
     //inicializar el vector solucion
     for(int i = 0; i < solucion.size(); i++){
@@ -40,11 +42,12 @@ BLP3::BLP3(const vector<vector<int>> & flujos, const vector<vector<int>> & dista
 
 
 BLP3::BLP3(const std::vector<int> & inicial, const vector<vector<int>> & flujos, 
-        const vector<vector<int>> & distancias, int seed, int k) {
+        const vector<vector<int>> & distancias, int seed, int k, int MAX_EVAL) {
     //inicializar la máscara dlb
     // dlb.assign(, 0);
     
     solucion = inicial;
+    this->MAX_EVAL = MAX_EVAL;
 
     float aux = 1;
     coste = evaluarSolucion(solucion, flujos, distancias, aux);
@@ -78,7 +81,6 @@ void BLP3::aplicarMovimiento(int i, int j){
 }
 
 void BLP3::busquedaLocal(const vector<vector<int>> & flujos, const vector<vector<int>> & distancias, int k){
-    const int MAX_EVAL = 2000;
     int iter = 0;
     //bool hay_mejora;
    

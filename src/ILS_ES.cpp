@@ -30,7 +30,7 @@ ILS_ES::ILS_ES(const vector<vector<int>> & flujos,
         vector<int> mutacion = mutar();
         
         //la mejoro con BL
-        ES mejorar(mutacion, flujos, distancias, seed);
+        ES mejorar(mutacion, flujos, distancias, seed, 2000);
         
         //Me quedo con la mejor        
         int c = evaluarSolucion(mejorar.getSolucion(), flujos, distancias, f);

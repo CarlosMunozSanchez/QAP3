@@ -36,10 +36,10 @@ private:
 
 public:
     ES(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias,
-            int seed);
+            int seed, int MAX_EVAL = 50000);
     
     ES(const std::vector<int> & inicial, const std::vector<std::vector<int>> & flujos, 
-    const std::vector<std::vector<int>> & distancias, int seed);
+    const std::vector<std::vector<int>> & distancias, int seed, int MAX_EVAL = 50000);
     
     inline std::vector<int> getSolucion(){return solucion;}
     

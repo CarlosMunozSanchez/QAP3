@@ -17,7 +17,7 @@ using namespace std;
 using Random = effolkronium::random_static;
 
 ES::ES(const vector<vector<int>> & flujos, 
-        const vector<vector<int>> & distancias, int seed) {
+        const vector<vector<int>> & distancias, int seed, int MAX_EVAL) {
     
     //inicializar el vector solucion
     solucion.resize(flujos[0].size());
@@ -36,19 +36,19 @@ ES::ES(const vector<vector<int>> & flujos,
     TINICIAL = T = (0.3 * evaluarSolucion(solucion, flujos, distancias, f)) / (-log(0.2));
     
     while(T < TFINAL){
-        T *= 10;
+        T *= 100;
     }
     
-    MAX_VECINOS = 5 * solucion.size();
+    MAX_VECINOS = solucion.size();
     MAX_EXITOS = 0.1 * MAX_VECINOS;
-    MAX_ITER = 50000 / MAX_VECINOS;
+    MAX_ITER = MAX_EVAL / MAX_VECINOS;
     B = (TINICIAL - TFINAL) / (MAX_ITER * TINICIAL * TFINAL);
     
     simularEnfriamiento(flujos, distancias);    
 }
 
 ES::ES(const vector<int> & inicial, const vector<vector<int>> & flujos, 
-        const vector<vector<int>> & distancias, int seed) {
+        const vector<vector<int>> & distancias, int seed, int MAX_EVAL) {
     
     //inicializar el vector solucion
     solucion = inicial;
@@ -66,9 +66,9 @@ ES::ES(const vector<int> & inicial, const vector<vector<int>> & flujos,
         T *= 10;
     }
     
-    MAX_VECINOS = 5 * solucion.size();
+    MAX_VECINOS = solucion.size();
     MAX_EXITOS = 0.1 * MAX_VECINOS;
-    MAX_ITER = 50000 / MAX_VECINOS;
+    MAX_ITER = MAX_EVAL / MAX_VECINOS;
     B = (TINICIAL - TFINAL) / (MAX_ITER * TINICIAL * TFINAL);
     
     simularEnfriamiento(flujos, distancias);    
@@ -81,7 +81,7 @@ void ES::simularEnfriamiento(const vector<vector<int>> & flujos,
     //bucle externo, controla el fin de la ejeución
     int iter = 0;
     int exitos = 1;
-    while(T > TFINAL and iter < MAX_ITER and exitos > 0){
+    while(/*T > TFINAL and */iter < MAX_ITER and exitos > 0){
         //bucle interno, controla las iteraciones 
         //para un nivel de temperatura concreto
         exitos = 0;

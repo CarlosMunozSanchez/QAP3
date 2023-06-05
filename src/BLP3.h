@@ -18,6 +18,7 @@ class BLP3 {
         //std::vector<bool> dlb;
         
         int coste;
+        int MAX_EVAL;
         
         /**
          * @brief Calcula el cambio en el coste al intercambiar los elementos i
@@ -55,7 +56,8 @@ class BLP3 {
          * @param k Modifica el operador de vecindario para aplicación en VNS
          */
         BLP3(const std::vector<std::vector<int>> & flujos, 
-                const std::vector<std::vector<int>> & distancias, int seed, int k = 1);
+                const std::vector<std::vector<int>> & distancias, int seed, 
+                int k = 1, int MAX_EVAL = 50000);
         /**
          * @brief Constructor con solución inicial
          * @param flujos
@@ -64,7 +66,8 @@ class BLP3 {
          * @param k Modifica el operador de vecindario para aplicación en VNS
          */
         BLP3(const std::vector<int> & inicial, const std::vector<std::vector<int>> & flujos, 
-            const std::vector<std::vector<int>> & distancias, int seed, int k = 1);
+            const std::vector<std::vector<int>> & distancias, 
+            int seed, int k = 1, int MAX_EVAL = 50000);
       
         std::vector<int> getSolucion()const {
             return solucion;

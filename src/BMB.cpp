@@ -18,7 +18,7 @@ BMB::BMB(const vector<vector<int>> & flujos, const vector<vector<int>> & distanc
     int costeMejor = 999999999;
     for(int i = 0; i < N; i++){
         //Obtengo soluciones desde distintos puntos de partida
-        soluciones.emplace(soluciones.end(), flujos, distancias, seed);
+        soluciones.emplace(soluciones.end(), flujos, distancias, seed, 1, 2000);
         seed++;
         //las evaluo y me quedo con la mejor
         float f = 1;
