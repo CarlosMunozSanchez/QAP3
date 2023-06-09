@@ -10,6 +10,7 @@
 #include "funciones.h"
 #include <iostream>
 #include <cmath>
+#include <random>
 
 using namespace std;
 // get base random alias which is auto seeded and has static API and internal state
@@ -63,7 +64,7 @@ ES::ES(const vector<int> & inicial, const vector<vector<int>> & flujos,
     TINICIAL = T = (0.3 * evaluarSolucion(solucion, flujos, distancias, f)) / (-log(0.2));
     
     while(T < TFINAL){
-        T *= 10;
+        T *= 100;
     }
     
     MAX_VECINOS = solucion.size();
@@ -101,15 +102,15 @@ void ES::simularEnfriamiento(const vector<vector<int>> & flujos,
                 //cout << "sustitución directa -> c = " << c << endl;
             } else{ //se comprueba la posibilidad de pasar a una solución peor
                 //Obtengo TRUE con probabilidad p
-                float p = exp(-c/T);
-                bool aceptar = Random::get(p);
+                double p = exp(-c/T); 
+                bool aceptar = Random::get<bool>(p);
                 if(aceptar){
                     aplicarMovimiento(v1, v2);
                     exitos++;
-                    //cout << "Empeoramiento -> c = " << c << endl;
+                    //cout << "Empeoramiento -> c = " << c << ", ITER = " << iter 
+                    //        << ", T = " << T << ", P = " << p << endl;
                 }
             }
-            
         }
         enfriar();
         iter++;
@@ -124,8 +125,8 @@ void ES::simularEnfriamiento(const vector<vector<int>> & flujos,
     cout << "LAST T: " << T << endl;
     cout << "B: " << B << endl;
     cout << "MAX SUCCESS: " << MAX_EXITOS << endl;
-    cout << "LAST SUCCESS: " << exitos << endl;*
-    */
+    cout << "LAST SUCCESS: " << exitos << endl;*/
+    
 }
 
 void ES::enfriar(){
