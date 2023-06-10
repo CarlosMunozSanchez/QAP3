@@ -38,6 +38,7 @@ VNS::VNS(const std::vector<std::vector<int>> & flujos,
         int c = evaluarSolucion(mejorar.getSolucion(), flujos, distancias, f);
         if(c < costeActual){
             solucion = mejorar.getSolucion();
+            costeActual = c;
             k = 1;
         }      
         else{

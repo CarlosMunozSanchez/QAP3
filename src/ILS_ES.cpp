@@ -36,6 +36,7 @@ ILS_ES::ILS_ES(const vector<vector<int>> & flujos,
         int c = evaluarSolucion(mejorar.getSolucion(), flujos, distancias, f);
         if(c < costeActual){
             solucion = mejorar.getSolucion();
+            costeActual = c;
         }      
     }
 }

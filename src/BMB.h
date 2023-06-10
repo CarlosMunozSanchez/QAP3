@@ -18,6 +18,13 @@ private:
     std::vector<BLP3> soluciones;
     
 public:
+    /**
+     * @brief Constructor de la clase. Inicializa los parámetros y calcula la 
+     * solución final. Usa BLP3 como método de búsqueda sobre N soluciones aleatorias.
+     * @param flujos Matriz de flujos
+     * @param distancias Matriz de distancias
+     * @param seed Semilla del motor de números aleatorios.
+     */
     BMB(const std::vector<std::vector<int>> & flujos, const std::vector<std::vector<int>> & distancias,
             int seed);
     inline std::vector<int> getSolucion(){return soluciones[best].getSolucion();}

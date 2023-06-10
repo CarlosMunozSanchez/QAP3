@@ -39,12 +39,13 @@ class BLP3 {
         void aplicarMovimiento(int i, int j);
         
         /**
-         * @brief Algoritmo de búsqueda local para el problema QAP.
+         * @brief Algoritmo de búsqueda local para el problema QAP. Modificación
+         * Para la práctica 3, sin DLB y escogiendo vecinos de forma aleatoria
          * @param flujos Matriz de flujos asociada.
          * @param distancias Matriz de distancias asociada.
          */
         void busquedaLocal(const std::vector<std::vector<int>> & flujos, 
-        const std::vector<std::vector<int>> & distancias, int k);
+            const std::vector<std::vector<int>> & distancias, int k);
         
     public:
         
