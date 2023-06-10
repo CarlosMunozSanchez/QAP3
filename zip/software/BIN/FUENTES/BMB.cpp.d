@@ -1,0 +1,8 @@
+BIN/./FUENTES/BMB.cpp.o: FUENTES/BMB.cpp FUENTES/BMB.h FUENTES/BLP3.h \
+ FUENTES/funciones.h
+
+FUENTES/BMB.h:
+
+FUENTES/BLP3.h:
+
+FUENTES/funciones.h:

@@ -1,0 +1,8 @@
+La práctica se ha entregado ya compilada y lista para su ejecución. No obstante, se puede recompilar haciendo uso del Makefile proporcionado, escribiendo make clean y luego make en una terminal.
+
+Para ejecutar la práctica, se debe escribir en una terminal el siguiente comando:
+./BIN/QAP_3 <archivo de datos de entrada> <semilla> <archivo de datos solución>
+
+Alternativamente, se puede utilizar un script (script.sh) que permite ejecutar el programa para todos los archivos de datos proporcionados. Su ejecución se reduce a escribir ./script.sh en la terminal. El script escribe todas las salidas del programa en un nuevo archivo que se llamará ejecuciones.out.
+
+Este script utiliza la semilla 42 para lanzar las ejecuciones. Se puede modificar este valor editando en el script la línea correspondiente a la inicialización de la variable seed.
